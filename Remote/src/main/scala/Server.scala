@@ -59,8 +59,8 @@ class ServerActor extends Actor {
           loser ! Lose("Your opponent is faster than you!")
         }
       }
-     // game.player1 ! StopActor
-     // game.player2 ! StopActor
+      game.player1 ! StopActor
+      game.player2 ! StopActor
       println("Game over")
     }
 
@@ -86,11 +86,12 @@ class Game(var player1: ActorRef, var player2: ActorRef, server: ActorRef) exten
     val gen = new Random()
     while (currentNumber != 4) {
 
+      player1 ! GameCurrentNumber(currentNumber)
+      player2 ! GameCurrentNumber(currentNumber)
+
       val secsToWait = gen.nextInt(3) + 2
       Thread.sleep(secsToWait * 1000)
 
-      player1 ! GameCurrentNumber(currentNumber)
-      player2 ! GameCurrentNumber(currentNumber)
       currentNumber += 1
     }
   }

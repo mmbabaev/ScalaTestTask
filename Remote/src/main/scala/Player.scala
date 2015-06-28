@@ -54,11 +54,10 @@ class PlayerActor extends Actor {
 
     case msg: String => println(msg)
 
-    // case StopActor => context.stop(self)
+    case StopActor => context.stop(self)
 
     case _ => println("Unknown message!")
-
   }
 
-
+  override def postStop(): Unit = println("Player actor was stopped")
 }
