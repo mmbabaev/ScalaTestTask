@@ -54,7 +54,11 @@ class PlayerActor extends Actor {
 
     case msg: String => println(msg)
 
+    // case StopActor => context.stop(self)
+
     case _ => println("Unknown message!")
 
   }
+
+
 }

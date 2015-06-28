@@ -23,6 +23,7 @@ case class SpaceMessage(message: String)
 case class Lose(reason: String)
 case class Win(reason: String)
 
+case class StopActor()
 
 trait EndGameReason
 case class Faster() extends EndGameReason

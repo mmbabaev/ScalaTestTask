@@ -55,11 +55,12 @@ class ServerActor extends Actor {
           gameThread.stop()
         }
         case Faster() => {
-          println("second")
           winner ! Win("You are faster than another player!")
           loser ! Lose("Your opponent is faster than you!")
         }
       }
+     // game.player1 ! StopActor
+     // game.player2 ! StopActor
       println("Game over")
     }
 
@@ -75,7 +76,7 @@ class ServerActor extends Actor {
  * @param player2 player2 actor reference
  * @param server server actor reference
  */
-class Game(player1: ActorRef, player2: ActorRef, server: ActorRef) extends Runnable {
+class Game(var player1: ActorRef, var player2: ActorRef, server: ActorRef) extends Runnable {
   var currentNumber = 1
 
   /**
@@ -103,7 +104,8 @@ class Game(player1: ActorRef, player2: ActorRef, server: ActorRef) extends Runna
   def receiveResult(message: String, sender: ActorRef): Unit = {
     val playerNumber = sender ! GetPlayerNumber
     val player = sender
-    val anotherPlayer = if (playerNumber != 1) player1 else player2 //opponent of sender
+
+    val anotherPlayer = if (player1.equals(sender)) player2 else player1 //opponent of sender
 
     if (currentNumber < 3) {
       server ! GameResults(player, anotherPlayer, HurryUp())
@@ -114,7 +116,6 @@ class Game(player1: ActorRef, player2: ActorRef, server: ActorRef) extends Runna
       server ! GameResults(player, anotherPlayer, WrongString())
       return
     }
-    println("first")
     server ! GameResults(anotherPlayer, player, Faster())
   }
 }
