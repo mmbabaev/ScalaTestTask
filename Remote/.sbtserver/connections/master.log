@@ -1,0 +1,40 @@
+New log file opened at Sun Jun 28 00:19:06 MSK 2015 by 1089@Air-Mihail
+Taking next connection to: 50328
+New client attempting to connect on port: 50330-50328
+  Address = /192.168.1.82:50328
+This client on port 50330 has uuid 910089a7-78cf-4c88-afc3-e588724b2adf configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-910089a7-78cf-4c88-afc3-e588724b2adf
+Taking next connection to: 50328
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50328
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50328
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50328
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50328
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50328
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50328
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50328
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50328
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50328
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 1089@Air-Mihail logs at Sun Jun 28 00:49:07 MSK 2015, goodbye.
