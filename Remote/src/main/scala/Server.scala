@@ -8,7 +8,6 @@ import Messages._
 object Server extends App  {
   val system = ActorSystem("RemoteSystem")
   val remoteActor = system.actorOf(Props[ServerActor], name = "ServerActor")
-  println("Server path: " + remoteActor.path.toString)
 }
 
 
@@ -45,17 +44,17 @@ class ServerActor extends Actor {
 
     case GameResults(loser, winner, reason) => {
       reason match {
-        case WrongString => {
+        case WrongString() => {
           winner ! Win("Your opponent enter wrong string.")
           loser ! Lose("You enter wrong string.")
           gameThread.stop()
         }
-        case HurryUp => {
+        case HurryUp() => {
           winner ! Win("Your opponent enter something too early.")
           loser ! Lose("You enter something too early")
           gameThread.stop()
         }
-        case Faster => {
+        case Faster() => {
           println("second")
           winner ! Win("You are faster than another player!")
           loser ! Lose("Your opponent is faster than you!")
